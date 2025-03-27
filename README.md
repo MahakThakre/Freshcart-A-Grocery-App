@@ -120,6 +120,9 @@ MailHog is required for handling emails. Run:
 ~/go/bin/MailHog
 ```
 
+## Accessing the Application
+- The Flask backend will run by default on http://127.0.0.1:5000/. The Vue.js frontend will run by default on http://localhost:8080/.
+
 ## Additional Information
 - **FreshCart can send emails and daily reminders via GSpace.**
 - **Built with Vue CLI, making it easy to install and run.**
