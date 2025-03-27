@@ -1,0 +1,18 @@
+Product Id,Product Name,Product price,Manufacture Date,Expiry Date,Remaining Stock,Sold Count,Total Sold Amount
+2,veg2,10,,,0,2,20
+1,vegetable1,10,null,null,-970,5,50
+4,fruits2,10,2023-12-31,2023-12-12,0,3,30
+3,fruits1,230,,,835,7,1610
+3,fruits1,230,,,835,7,1610
+3,fruits1,230,,,835,7,1610
+3,fruits1,230,,,835,7,1610
+3,fruits1,230,,,835,7,1610
+2,veg2,10,,,0,2,20
+1,vegetable1,10,null,null,-970,5,50
+1,vegetable1,10,null,null,-970,5,50
+1,vegetable1,10,null,null,-970,5,50
+1,vegetable1,10,null,null,-970,5,50
+4,fruits2,10,2023-12-31,2023-12-12,0,3,30
+3,fruits1,230,,,835,7,1610
+4,fruits2,10,2023-12-31,2023-12-12,0,3,30
+3,fruits1,230,,,835,7,1610

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Report</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Monthly Report</h1>
+
+    <h2>Hello, {{ username }}!</h2>
+
+    <table>
+        <tr>
+            <th>Your Orders</th>
+        </tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>No. of Products Bought</th>
+                        <th>Amount Paid</th>
+                        <th>Bought Date</th>
+                    </tr>
+                    {% for order in shopping_data %}
+                        <tr>
+                            <td>{{ product_names[order.product_id] }}</td>
+                            <td>{{ order.product_count }}</td>
+                            <td>{{ order.amount }}</td>
+                            <td>{{ order.bought_date }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

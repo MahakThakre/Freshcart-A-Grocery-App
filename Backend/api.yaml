@@ -1,0 +1,415 @@
+swagger: '2.0'
+info:
+  title: 'Your Flask API'
+  description: 'Description of your Flask API'
+  version: '1.0'
+
+paths:
+  /manager_signup:
+    post:
+      summary: 'Manager Signup'
+      responses:
+        '200':
+          description: 'Successfully signed up as a manager'
+      consumes:
+        - 'application/json'
+      parameters:
+        - name: 'email'
+          in: 'body'
+          required: true
+          description: 'Email address of the user'
+          type: 'string'
+        - name: 'password'
+          in: 'body'
+          required: true
+          description: 'Password for the user'
+          type: 'string'
+        - name: 'username'
+          in: 'body'
+          required: true
+          description: 'Username of the user'
+          type: 'string'
+
+  /user_signup:
+    post:
+      summary: 'User Signup'
+      responses:
+        '200':
+          description: 'Successfully signed up as a user'
+      consumes:
+        - 'application/json'
+      parameters:
+        - name: 'email'
+          in: 'body'
+          required: true
+          description: 'Email address of the user'
+          type: 'string'
+        - name: 'password'
+          in: 'body'
+          required: true
+          description: 'Password for the user'
+          type: 'string'
+        - name: 'username'
+          in: 'body'
+          required: true
+          description: 'Username of the user'
+          type: 'string'
+
+  /getUserData/{email}:
+    get:
+      summary: 'Get User Data'
+      responses:
+        '200':
+          description: 'Successfully retrieved user data'
+      parameters:
+        - name: 'email'
+          in: 'path'
+          required: true
+          description: 'Email address of the user'
+          type: 'string'
+
+  /admin_dashboard/{email}:
+    get:
+      summary: 'Admin Dashboard'
+      responses:
+        '200':
+          description: 'Successfully retrieved admin dashboard data'
+      parameters:
+        - name: 'email'
+          in: 'path'
+          required: true
+          description: 'Email address of the user'
+          type: 'string'
+
+  /approveRequest/{request_id}:
+    post:
+      summary: 'Approve Request'
+      responses:
+        '200':
+          description: 'Successfully approved the request'
+      parameters:
+        - name: 'request_id'
+          in: 'path'
+          required: true
+          description: 'ID of the request to approve'
+          type: 'integer'
+
+  /addCategory:
+    post:
+      summary: 'Add Category'
+      responses:
+        '200':
+          description: 'Successfully added a new category'
+      parameters:
+        - name: 'category_name'
+          in: 'body'
+          required: true
+          description: 'Name of the new category'
+          type: 'string'
+
+  /getCategory:
+    get:
+      summary: 'Get Categories'
+      responses:
+        '200':
+          description: 'Successfully retrieved categories'
+
+  /editCategory/{category_id}:
+    put:
+      summary: 'Edit Category'
+      responses:
+        '200':
+          description: 'Successfully edited the category'
+      parameters:
+        - name: 'category_id'
+          in: 'path'
+          required: true
+          description: 'ID of the category to edit'
+          type: 'integer'
+        - name: 'category_name'
+          in: 'body'
+          required: true
+          description: 'New name for the category'
+          type: 'string'
+
+  /deleteCategory/{category_id}:
+    delete:
+      summary: 'Delete Category'
+      responses:
+        '200':
+          description: 'Successfully deleted the category'
+      parameters:
+        - name: 'category_id'
+          in: 'path'
+          required: true
+          description: 'ID of the category to delete'
+          type: 'integer'
+
+  /categoryRequests:
+    get:
+      summary: 'Get Category Requests'
+      responses:
+        '200':
+          description: 'Successfully retrieved category requests'
+
+  /approveCatRequest/{request_id}:
+    post:
+      summary: 'Approve Category Request'
+      responses:
+        '200':
+          description: 'Successfully approved the category request'
+      parameters:
+        - name: 'request_id'
+          in: 'path'
+          required: true
+          description: 'ID of the category request to approve'
+          type: 'integer'
+
+  /addProduct/{category_id}:
+    post:
+      summary: 'Add Product'
+      responses:
+        '200':
+          description: 'Successfully added a new product'
+      parameters:
+        - name: 'product_name'
+          in: 'body'
+          required: true
+          description: 'Name of the new product'
+          type: 'string'
+        - name: 'manufacture_date'
+          in: 'body'
+          description: 'Manufacture date of the product'
+          type: 'string'
+        - name: 'expiry_date'
+          in: 'body'
+          description: 'Expiry date of the product'
+          type: 'string'
+        - name: 'price'
+          in: 'body'
+          required: true
+          description: 'Price of the product'
+          type: 'integer'
+        - name: 'rate_per_unit'
+          in: 'body'
+          required: true
+          description: 'Rate per unit of the product'
+          type: 'string'
+        - name: 'stock'
+          in: 'body'
+          required: true
+          description: 'Stock quantity of the product'
+          type: 'integer'
+
+  /getProducts/{category_id}:
+    get:
+      summary: 'Get Products'
+      responses:
+        '200':
+          description: 'Successfully retrieved products'
+      parameters:
+        - name: 'category_id'
+          in: 'path'
+          required: true
+          description: 'ID of the category to get products from'
+          type: 'integer'
+
+  /getProduct/{category_id}/{product_id}:
+    get:
+      summary: 'Get Single Product'
+      responses:
+        '200':
+          description: 'Successfully retrieved a single product'
+      parameters:
+        - name: 'category_id'
+          in: 'path'
+          required: true
+          description: 'ID of the category containing the product'
+          type: 'integer'
+        - name: 'product_id'
+          in: 'path'
+          required: true
+          description: 'ID of the product to retrieve'
+          type: 'integer'
+
+  /deleteProduct/{product_id}:
+    delete:
+      summary: 'Delete Product'
+      responses:
+        '200':
+          description: 'Successfully deleted the product'
+      parameters:
+        - name: 'product_id'
+          in: 'path'
+          required: true
+          description: 'ID of the product to delete'
+          type: 'integer'
+
+  /editProduct/{product_id}:
+    put:
+      summary: 'Edit Product'
+      responses:
+        '200':
+          description: 'Successfully edited the product'
+      parameters:
+        - name: 'product_id'
+          in: 'path'
+          required: true
+          description: 'ID of the product to edit'
+          type: 'integer'
+        - name: 'product_name'
+          in: 'body'
+          required: true
+          description: 'New name for the product'
+          type: 'string'
+        - name: 'manufacture_date'
+          in: 'body'
+          description: 'New manufacture date for the product'
+          type: 'string'
+        - name: 'expiry_date'
+          in: 'body'
+          description: 'New expiry date for the product'
+          type: 'string'
+        - name: 'price'
+          in: 'body'
+          required: true
+          description: 'New price for the product'
+          type: 'integer'
+        - name: 'rate_per_unit'
+          in: 'body'
+          required: true
+          description: 'New rate per unit for the product'
+          type: 'string'
+        - name: 'stock'
+          in: 'body'
+          required: true
+          description: 'New stock quantity for the product'
+          type: 'integer'
+
+  /approveCatUpdateRequest/{category_id}:
+    put:
+      summary: 'Approve Category Update Request'
+      responses:
+        '200':
+          description: 'Successfully approved the category update request'
+      parameters:
+        - name: 'category_id'
+          in: 'path'
+          required: true
+          description: 'ID of the category to approve update request'
+          type: 'integer'
+
+  /categoryUpdateRequests:
+    get:
+      summary: 'Get Category Update Requests'
+      responses:
+        '200':
+          description: 'Successfully retrieved category update requests'
+
+  /approveCatDeleteRequest/{category_id}:
+    delete:
+      summary: 'Approve Category Delete Request'
+      responses:
+        '200':
+          description: 'Successfully approved the category delete request'
+      parameters:
+        - name: 'category_id'
+          in: 'path'
+          required: true
+          description: 'ID of the category to approve delete request'
+          type: 'integer'
+
+  /categoryDeleteRequests:
+    get:
+      summary: 'Get Category Delete Requests'
+      responses:
+        '200':
+          description: 'Successfully retrieved category delete requests'
+
+
+  /userDashboard:
+    get:
+      summary: 'User Dashboard'
+      responses:
+        '200':
+          description: 'Successfully retrieved user dashboard data'
+
+  /buyProduct/{product_id}:
+    get:
+      summary: 'Get Bought Products'
+      responses:
+        '200':
+          description: 'Successfully retrieved bought products'
+
+  /buyProduct/{product_id}:
+    post:
+      summary: 'Buy Product'
+      responses:
+        '200':
+          description: 'Successfully bought the product'
+      parameters:
+        - name: 'product_count'
+          in: 'body'
+          required: true
+          description: 'Count of the product to buy'
+          type: 'integer'
+
+  /bought:
+    post:
+      summary: 'Buy Products in Cart'
+      responses:
+        '200':
+          description: 'Successfully bought products in the cart'
+
+  /cartProduct/{product_id}:
+    post:
+      summary: 'Add Product to Cart'
+      responses:
+        '200':
+          description: 'Successfully added a product to the cart'
+      parameters:
+        - name: 'product_count'
+          in: 'body'
+          required: true
+          description: 'Count of the product to add to the cart'
+          type: 'integer'
+
+  /cart/{product_id}:
+    delete:
+      summary: 'Remove Product from Cart'
+      responses:
+        '200':
+          description: 'Successfully removed a product from the cart'
+      parameters:
+        - name: 'product_id'
+          in: 'path'
+          required: true
+          description: 'ID of the product to remove from the cart'
+          type: 'integer'
+
+  /cart:
+    get:
+      summary: 'Get Cart'
+      responses:
+        '200':
+          description: 'Successfully retrieved cart data'
+
+  /buyCart:
+    post:
+      summary: 'Buy Products in Cart'
+      responses:
+        '200':
+          description: 'Successfully bought products in the cart'
+
+    /searchProducts:
+    get:
+      summary: 'Search Products'
+      responses:
+        '200':
+          description: 'Successfully retrieved search results'
+      parameters:
+        - name: 'query'
+          in: 'query'
+          required: true
+          description: 'Search query'
+          type: 'string'
